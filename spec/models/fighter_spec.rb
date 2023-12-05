@@ -12,7 +12,7 @@ RSpec.describe Fighter, type: :model do
     end
 
     it 'description consegue ser preenchido?' do
-      @fighter.description = ''
+      @fighter.description = 'o melhor'
       expect(@fighter.description).to eq('o melhor')
     end
 
