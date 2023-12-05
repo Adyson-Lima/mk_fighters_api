@@ -11,6 +11,11 @@ RSpec.describe Fighter, type: :model do
       expect(@fighter.name).to eq('kabal')
     end
 
+    it 'description consegue ser preenchido?' do
+      @fighter.description = ''
+      expect(@fighter.description).to eq('o melhor')
+    end
+
   end
 
 end
