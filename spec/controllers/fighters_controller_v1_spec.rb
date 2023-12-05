@@ -28,4 +28,13 @@ RSpec.describe Api::V1::FightersController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/fighters/id' do
+    it 'Consegue atualizar um fighter e retornar status 200?' do
+      fighter = Fighter.last
+      patch :update, params: {fighter: {name: 'millena', description: 'doidinha'}, id: fighter.id}
+      expect(response.body).to include_json(name: 'millena')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
