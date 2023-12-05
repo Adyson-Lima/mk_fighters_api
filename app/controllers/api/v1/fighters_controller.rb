@@ -1,6 +1,6 @@
 class Api::V1::FightersController < ApplicationController
 
-  before_action :set_fighter, only: %i[show] # show update delete
+  before_action :set_fighter, only: %i[show update] # show update delete
 
   def index
     @fighters = Fighter.all 
@@ -15,6 +15,14 @@ class Api::V1::FightersController < ApplicationController
     @fighter = Fighter.new(fighter_params)
     if @fighter.save
       render json: @fighter, status: :created, location: api_v1_fighter_url(@fighter)
+    else
+      render json: @fighter.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @fighter.update(fighter_params)
+      render json: @fighter
     else
       render json: @fighter.errors, status: :unprocessable_entity
     end
