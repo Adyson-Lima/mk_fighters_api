@@ -1,6 +1,6 @@
 class Api::V1::FightersController < ApplicationController
 
-  before_action :set_fighter, only: %i[show update] # show update delete
+  before_action :set_fighter, only: %i[show update destroy] # show update delete
 
   def index
     @fighters = Fighter.all 
@@ -26,6 +26,10 @@ class Api::V1::FightersController < ApplicationController
     else
       render json: @fighter.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @fighter.destroy!
   end
 
 private
