@@ -11,6 +11,15 @@ class Api::V1::FightersController < ApplicationController
     render json: @fighter
   end
 
+  def create
+    @fighter = Fighter.new(fighter_params)
+    if @fighter.save
+      render json: @fighter, status: :created, location: api_v1_fighter_url(@fighter)
+    else
+      render json: @fighter.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_fighter
