@@ -37,4 +37,13 @@ RSpec.describe Api::V1::FightersController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/fighters/id' do
+    it 'Consegue excluir um fighter e retornar status 204?' do
+      fighter = Fighter.last
+      delete :destroy, params: {id: fighter.id}
+      expect(Fighter.all).not_to include(id: fighter.id)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
