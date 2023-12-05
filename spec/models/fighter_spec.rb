@@ -28,7 +28,7 @@ RSpec.describe Fighter, type: :model do
 
     it 'fighter invalido com campos obrigatorios não preenchidos?' do
       fighter = Fighter.new
-      expect(fighter).to be_valid
+      expect(fighter).to be_invalid
     end
 
   end
