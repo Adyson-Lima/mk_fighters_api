@@ -18,4 +18,14 @@ RSpec.describe Fighter, type: :model do
 
   end
 
+  describe 'Testes de validação do model Fighter' do
+
+    it 'fighter valido com campos obrigatorios preenchidos?' do
+      @fighter.name = ''
+      @fighter.description = ''
+      expect(@fighter).to be_valid
+    end
+
+  end
+
 end
