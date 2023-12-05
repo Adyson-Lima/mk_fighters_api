@@ -1,15 +1,15 @@
 # API REST "mk_fighters_api", desenvolvida em Ruby on Rails, com versionamento de recursos para treino de programação em Ruby on Rails.
 
 ## Endpoints da API
--GET: localhost/api/v1/mk_fighters
+-GET: localhost/api/v1/fighters
 
--GET: localhost/api/v1/mk_fighters/id
+-GET: localhost/api/v1/fighters/id
 
--POST: localhost/api/v1/mk_fighters
+-POST: localhost/api/v1/fighters
 
--PATCH: localhost/api/v1/mk_fighters/id
+-PATCH: localhost/api/v1/fighters/id
 
--DELETE: localhost/api/v1/mk_fighters/id
+-DELETE: localhost/api/v1/fighters/id
 
 # Tecnologias utilizadas
 

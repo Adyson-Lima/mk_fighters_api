@@ -4,7 +4,7 @@ RSpec.describe Api::V1::FightersController, type: :controller do
 
   before{@fighter = Fighter.create(name: 'sektor', description: 'ninja cibernetico')}
 
-  describe 'GET /api/v1/mk_fighters' do
+  describe 'GET /api/v1/fighters' do
     it 'Consegue listar todos os fighters e retornar status 200?' do
       get :index
       expect(JSON.parse(response.body).size).to eq(1)
@@ -12,11 +12,19 @@ RSpec.describe Api::V1::FightersController, type: :controller do
     end
   end
 
-  describe 'GET /api/v1/mk_fighters/id' do
+  describe 'GET /api/v1/fighters/id' do
     it 'Consegue listar um fighter especifico e retornar status 200?' do
       get :show, params: {id: @fighter.id}
       expect(response.body).to include_json(id: @fighter.id)
       expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'POST /api/v1/fighters' do
+    it 'Consegue criar um fighter e retornar status 201?' do
+      post :create, params: {fighter: {name: 'shao khan', description: 'super boss'},format: :json}
+      expect(response.body).to include_json(name: 'shao khan')
+      expect(response).to have_http_status(201)
     end
   end
 
