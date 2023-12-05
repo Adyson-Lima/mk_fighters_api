@@ -7,7 +7,7 @@ RSpec.describe Fighter, type: :model do
   describe 'Testes de preenchimento do model Fighter' do
 
     it 'name consegue ser preenchido?' do
-      @fighter.name = ''
+      @fighter.name = 'kabal'
       expect(@fighter.name).to eq('kabal')
     end
 
